@@ -7,6 +7,8 @@ TagManager:
   - Challenge
   - EndofScreen
   - Border
+  - Mask
+  - PatrolBorder
   layers:
   - Default
   - TransparentFX
