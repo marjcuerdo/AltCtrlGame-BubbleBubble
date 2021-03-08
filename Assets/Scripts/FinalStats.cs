@@ -18,11 +18,11 @@ public class FinalStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        physText.text = "Physical Health: " + PlayerPrefs.GetFloat("Physical").ToString();
-        mentText.text = "Mental Health: " + PlayerPrefs.GetFloat("Mental").ToString();
-        finText.text = "Finances: " + PlayerPrefs.GetFloat("Finances").ToString();
-        yourVirText.text = "Your Virus %: " + PlayerPrefs.GetFloat("Your Virus").ToString();
-        cityVirText.text = "City Virus %: " + PlayerPrefs.GetFloat("City Virus").ToString();
+        physText.text = "Physical Health: " + PlayerPrefs.GetFloat("Physical").ToString("#.00")+"%";
+        mentText.text = "Mental Health: " + PlayerPrefs.GetFloat("Mental").ToString("#.00")+"%";
+        finText.text = "Finances: " + PlayerPrefs.GetFloat("Finances").ToString("#.00")+"%";
+        yourVirText.text = "Your Virus %: " + PlayerPrefs.GetFloat("Your Virus").ToString("#.00")+"%";
+        cityVirText.text = "City Virus %: " + PlayerPrefs.GetFloat("City Virus").ToString("#.00")+"%";
 
         float worstStat = 0;
         float index = 0;

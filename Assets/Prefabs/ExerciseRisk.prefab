@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2042618216218102910}
   - component: {fileID: 7640052449079836414}
   - component: {fileID: 2229311858770901774}
+  - component: {fileID: 6965050339448128449}
   m_Layer: 0
   m_Name: ExerciseRisk
   m_TagString: Challenge
@@ -97,7 +98,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7870fe83898b247cdb0a18cb48584868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 1
   speed: 3
+  canDestroy: 0
+  playerObj: {fileID: 0}
 --- !u!58 &2229311858770901774
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -114,6 +118,27 @@ CircleCollider2D:
   m_Offset: {x: -0.3156811, y: 0}
   serializedVersion: 2
   m_Radius: 1.2926272
+--- !u!50 &6965050339448128449
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6478842512920177779}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &8165949857488277390
 GameObject:
   m_ObjectHideFlags: 0

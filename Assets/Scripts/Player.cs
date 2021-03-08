@@ -11,17 +11,30 @@ public class Player : MonoBehaviour
     public float personalCovidLvl = 0;
     public float communityCovidLvl = 0;
 
-    public float speedPhys = (float)0.05;
+    public bool maskProtection = false;
 
     // Update is called once per frame
     void Update()
     {
-        // decrement 
-        physicalHealth -= Time.deltaTime + Time.deltaTime; // decrement 
-        mentalHealth -= Time.deltaTime + Time.deltaTime; // decrement 
-        financeHealth -= Time.deltaTime + Time.deltaTime; // decrement 
-        personalCovidLvl += Time.deltaTime; // decrement 
-        communityCovidLvl += Time.deltaTime; // decrement 
+        // if there's NO mask protection 
+        if (!maskProtection) {
+            // decrement 
+            physicalHealth -= Time.deltaTime + 0.017f; // decrement 
+            mentalHealth -= Time.deltaTime + 0.015f; // decrement 
+            financeHealth -= Time.deltaTime + 0.010f; // decrement 
+            personalCovidLvl += Time.deltaTime + 0.010f; // decrement 
+            communityCovidLvl += Time.deltaTime + 0.02f; // decrement 
+        } 
+        // if there IS mask protection
+        else {
+            physicalHealth -= Time.deltaTime; // decrement 
+            mentalHealth -= Time.deltaTime; // decrement 
+            financeHealth -= Time.deltaTime; // decrement 
+            personalCovidLvl += Time.deltaTime; // decrement 
+            communityCovidLvl += Time.deltaTime; // decrement 
+        }
+
+
 
         if (physicalHealth <= 0) {
             Debug.Log("Your physical health has failed.");

@@ -74,11 +74,11 @@ public class UIStats : MonoBehaviour
                 // go to game over screen
             }
 
-            physHealthText.text = "Physical: " + playerObj.GetComponent<Player>().physicalHealth.ToString();
-            mentHealthText.text = "Mental: " + playerObj.GetComponent<Player>().mentalHealth.ToString();
-            finHealthText.text = "Finances: " + playerObj.GetComponent<Player>().financeHealth.ToString();
-            yourCovidText.text = "Your Virus %: " + playerObj.GetComponent<Player>().personalCovidLvl.ToString();
-            commCovidText.text = "City Virus %: " + playerObj.GetComponent<Player>().communityCovidLvl.ToString();
+            physHealthText.text = "Physical        " + playerObj.GetComponent<Player>().physicalHealth.ToString("#.00")+"%";
+            mentHealthText.text = "Mental          " + playerObj.GetComponent<Player>().mentalHealth.ToString("#.00")+"%";
+            finHealthText.text = "Finances       " + playerObj.GetComponent<Player>().financeHealth.ToString("#.00")+"%";
+            yourCovidText.text = "Your Virus % " + playerObj.GetComponent<Player>().personalCovidLvl.ToString("#.00")+"%";
+            commCovidText.text = "City Virus %  " + playerObj.GetComponent<Player>().communityCovidLvl.ToString("#.00")+"%";
         }
 
         // change text color depending on level

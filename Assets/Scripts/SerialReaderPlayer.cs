@@ -33,18 +33,25 @@ float piezoValue = 0;
 // pot value
 float potValue = 0;
 
+// ultrasonic value
+float ultSonValue = 0;
+
 public SpriteRenderer bubbleObj;
 public SpriteRenderer maskObj;
 
 //public GameObject challengeObj;
 
 public bool canCollect = false;
-
-public int colCount = 0;
+public float maskTimer = 5;
 
 public bool noMask = false;
 
-	public Player playerObj;
+public int colCount = 0;
+
+public Player playerObj;
+
+public AudioSource coughAudio;
+public AudioSource bubbleAudio;
 
 	void Start() {
 
@@ -54,12 +61,25 @@ public bool noMask = false;
 	}
 
 	void Update() {
-		if (!noMask) {
-			maskObj.enabled = true;
-		} else {
-			maskObj.enabled = false;
-		}
+        if (maskTimer >= 0) {
+            //Debug.Log("timer: " + maskTimer);
+            maskTimer -= Time.deltaTime;
+        }
+
+        if (maskTimer <= 0) {
+            maskObj.enabled = false;
+            playerObj.maskProtection = false;
+            noMask = true;
+        } else {
+            playerObj.maskProtection = true;
+            maskObj.enabled = true;
+            coughAudio.Play();
+        }
 	}
+
+    public void EnableSpriteRender() {
+        maskObj.enabled = true;
+    }
 
 	void OnTriggerEnter2D(Collider2D col) {
 		if (col.CompareTag("Challenge")) {
@@ -88,7 +108,7 @@ public bool noMask = false;
         	// make sure values weren't corrupted
         	if (compValues.Length == 2) {
 
-        		// pot
+        		// potentiometer
         		if (float.Parse(compValues[0].Trim()) == 0) {
 	        		potValue = float.Parse(compValues[1].Trim());
 
@@ -96,16 +116,33 @@ public bool noMask = false;
 	        		bubbleObj.transform.localScale = new Vector3(potValue, potValue, 1f);
 
         		}  
-        		// piezo
+        		// piezo buzzer
         		else if (float.Parse(compValues[0].Trim()) == 1) {
         			piezoValue = float.Parse(compValues[1].Trim());
 
         			// hit piezo to temporarily enable collecting objects
 	        		if (piezoValue > 50) {
 	        			canCollect = true;
+                        bubbleAudio.Play();
 	        			//Debug.Log("Piezo was hit");
 	        		}
         		}
+
+                // ultrasonic sensor
+                else if (float.Parse(compValues[0].Trim()) == 2) {
+                    ultSonValue = float.Parse(compValues[1].Trim());
+
+                    Debug.Log(ultSonValue);
+
+                    if (ultSonValue < 20) {
+                        //noMask = false;
+                        // reset mask
+                        noMask = false;
+                        //maskObj.enabled = true;
+                        maskTimer = 5;
+                    }
+
+                }
         	}
         }
 
@@ -116,9 +153,9 @@ public bool noMask = false;
     // failure to connect.
     void OnConnectionEvent(bool success)
     {
-        if (success)
+        /*if (success)
             Debug.Log("Connection established");
         else
-            Debug.Log("Connection attempt failed or disconnection detected");
+            Debug.Log("Connection attempt failed or disconnection detected");*/
     }
 }
