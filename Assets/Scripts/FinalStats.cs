@@ -24,6 +24,10 @@ public class FinalStats : MonoBehaviour
         yourVirText.text = "Your Virus %: " + PlayerPrefs.GetFloat("Your Virus").ToString("#.00")+"%";
         cityVirText.text = "City Virus %: " + PlayerPrefs.GetFloat("City Virus").ToString("#.00")+"%";
 
+        if (SceneManager.GetActiveScene().name == "SuccessEnding" ) {
+            resultText.text = "You got vaccinated! Continue practicing safe behaviors until your community does, too.";
+        } else {
+
         float worstStat = 0;
         float index = 0;
 
@@ -44,16 +48,17 @@ public class FinalStats : MonoBehaviour
         }
 
         if (index == 0) {
-            resultText.text = "Your physical health has failed.";
+            resultText.text = "Your physical health is poor nowadays, so you have a higher risk of getting COVID-19. Hopefully, you can get help soon.";
         } else if (index == 1) {
-            resultText.text = "Your mental health has failed.";
+            resultText.text = "Your mental health isn't great nowadays. Hopefully, you can talk to someone soon.";
         } else if (index == 2) {
-            resultText.text = "Your finances have failed.";
+            resultText.text = "You're sadly running low on money. Hopefully, you can get help soon.'";
         } else if (index == 3) {
-            resultText.text = "You got COVID-19. You should probably get tested and contact anyone you've seen lately...";
+            resultText.text = "You got COVID-19. You need to get tested and contact anyone you've seen lately...";
         } else if (index == 4) {
             resultText.text = "Your city's COVID-19 levels are too high. A stay-at-home order is now in place.";
         } 
+    }
 
         // change text color depending on level
         CheckStatus(PlayerPrefs.GetFloat("Physical").ToString(), physText);

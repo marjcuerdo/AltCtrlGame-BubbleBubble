@@ -745,7 +745,7 @@ MonoBehaviour:
   financeHealth: 100
   personalCovidLvl: 0
   communityCovidLvl: 0
-  speedPhys: 0.05
+  maskProtection: 0
 --- !u!114 &1188192592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -761,9 +761,12 @@ MonoBehaviour:
   bubbleObj: {fileID: 0}
   maskObj: {fileID: 0}
   canCollect: 0
-  colCount: 0
+  maskTimer: 5
   noMask: 0
+  colCount: 0
   playerObj: {fileID: 0}
+  coughAudio: {fileID: 0}
+  bubbleAudio: {fileID: 0}
 --- !u!50 &1188192593
 Rigidbody2D:
   serializedVersion: 4

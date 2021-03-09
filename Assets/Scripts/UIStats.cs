@@ -74,7 +74,7 @@ public class UIStats : MonoBehaviour
                 // go to game over screen
             }
 
-            physHealthText.text = "Physical        " + playerObj.GetComponent<Player>().physicalHealth.ToString("#.00")+"%";
+            physHealthText.text = "Physical         " + playerObj.GetComponent<Player>().physicalHealth.ToString("#.00")+"%";
             mentHealthText.text = "Mental          " + playerObj.GetComponent<Player>().mentalHealth.ToString("#.00")+"%";
             finHealthText.text = "Finances       " + playerObj.GetComponent<Player>().financeHealth.ToString("#.00")+"%";
             yourCovidText.text = "Your Virus % " + playerObj.GetComponent<Player>().personalCovidLvl.ToString("#.00")+"%";
