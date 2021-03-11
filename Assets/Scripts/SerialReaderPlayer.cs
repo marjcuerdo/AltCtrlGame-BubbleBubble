@@ -52,6 +52,7 @@ public Player playerObj;
 
 public AudioSource coughAudio;
 public AudioSource bubbleAudio;
+public AudioSource maskAudio;
 
 	void Start() {
 
@@ -67,10 +68,12 @@ public AudioSource bubbleAudio;
         }
 
         if (maskTimer <= 0) {
+            maskAudio.Play();
             maskObj.enabled = false;
             playerObj.maskProtection = false;
             noMask = true;
         } else {
+
             playerObj.maskProtection = true;
             maskObj.enabled = true;
             coughAudio.Play();
@@ -137,6 +140,7 @@ public AudioSource bubbleAudio;
                     if (ultSonValue < 20) {
                         //noMask = false;
                         // reset mask
+                        
                         noMask = false;
                         //maskObj.enabled = true;
                         maskTimer = 5;

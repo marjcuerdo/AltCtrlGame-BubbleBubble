@@ -4,12 +4,10 @@ using UnityEngine.UI;
 
 public class Link : MonoBehaviour 
 {
-	string linkURL = "";
+	public string linkURL = "";
 
 	public void OpenLink()
-	{
-		linkURL = "https://www.cdc.gov/coronavirus/2019-ncov/index.html"; 
-		
+	{	
 		#if !UNITY_EDITOR
 		openWindow(linkURL);
 		#endif

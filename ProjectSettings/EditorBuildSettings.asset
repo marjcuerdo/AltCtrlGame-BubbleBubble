@@ -6,12 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/StartMenu.unity
+    guid: 835badf815a7d44a69ed6eea917e8a66
+  - enabled: 1
+    path: Assets/Scenes/Instructions.unity
+    guid: 145cdebfb1c48445bae1caed00778aae
+  - enabled: 1
     path: Assets/Scenes/BubbleSocial.unity
     guid: 262da81c01cf54ff88c4581900238937
   - enabled: 1
-    path: Assets/Scenes/SuccessEnding.unity
-    guid: 47430c3a8152e484fb4b50be639f7137
-  - enabled: 1
     path: Assets/Scenes/FailureEnding.unity
     guid: 31c166e43451544698b8db97c3b8f32d
+  - enabled: 1
+    path: Assets/Scenes/SuccessEnding.unity
+    guid: 47430c3a8152e484fb4b50be639f7137
   m_configObjects: {}
